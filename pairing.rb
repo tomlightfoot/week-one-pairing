@@ -45,7 +45,7 @@ end
 
 def humanReadable(data)
   data.each{ |k, v|
-    puts "A house was sold in #{k[0]}, #{k[1]} for [price] on [date]"
+    puts "A house was sold in #{k[0]}, #{k[1]} for £#{v[:average]} on #{v[:transactions][0][2]}"
   }
 end
 
