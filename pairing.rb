@@ -49,4 +49,22 @@ def humanReadable(data)
   }
 end
 
-humanReadable(@data)
+def finder(data)
+  array = wards_and_districts(data)
+  user_input = ""
+  until array.include?(user_input)
+    puts "Which district or ward would you like to see?"
+    user_input = gets.chomp
+  end
+    ward_or_district = data.select { |k, v| k[0] == user_input || k[1] == user_input }
+    humanReadable(ward_or_district)
+end
+
+def wards_and_districts(data)
+  array = []
+  data.each_key { |key| array << key }
+  array = array.flatten
+end
+
+
+finder(@data)
